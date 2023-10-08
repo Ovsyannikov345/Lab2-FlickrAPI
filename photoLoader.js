@@ -48,7 +48,7 @@ function getRandomPhotos() {
             });
         })
         .catch((error) => {
-            console.error('Ошибка при загрузке изображений:', error);
+            console.error('Error while loading images:', error);
         });
 }
 
@@ -81,7 +81,7 @@ function searchPhotos() {
             });
         })
         .catch((error) => {
-            console.error('Ошибка при загрузке изображений:', error);
+            console.error('Error while loading images:', error);
         });
 }
 
