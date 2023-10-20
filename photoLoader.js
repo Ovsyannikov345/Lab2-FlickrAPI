@@ -32,7 +32,7 @@ function getRandomPhotos() {
     fetch(randomUrl)
         .then((response) => response.json())
         .then((data) => {
-            const photos = data.photos.photo;        
+            const photos = data.photos.photo;
             photos.forEach((photo) => {
                 const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
                 const imageAlt = photo.title;
@@ -66,6 +66,13 @@ function searchPhotos() {
         .then((response) => response.json())
         .then((data) => {
             const photos = data.photos.photo;
+
+            if (photos.length === 0) {
+                const paragraphElement = document.createElement("p");
+                paragraphElement.textContent = "No results";
+                gallery.appendChild(paragraphElement);
+            }
+
             photos.forEach((photo) => {
                 const imageUrl = `https://farm${photo.farm}.staticflickr.com/${photo.server}/${photo.id}_${photo.secret}.jpg`;
                 const imageAlt = photo.title;
